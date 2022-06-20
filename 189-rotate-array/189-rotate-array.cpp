@@ -10,33 +10,21 @@ public:
 //         # shift each element by k in a cycle 
 //         # till we are at the same position
         
-//         int temp;
-//         int sz=nums.size();
-//         for(int i=0; i<sz; i++)
-//         {
-            
-//         }
+        int temp;
         int n=nums.size();
         k=k%n;
-        int low=n-k;
-        int high=n-1;
-        while(low<high)
+        int gcd=__gcd(n, k);
+        for(int i=0; i<gcd; i++)
         {
-            swap(nums[low++], nums[high--]);
-        }
-        
-        low=0;
-        high=n-k-1;
-        while(low<high)
-        {
-            swap(nums[low++], nums[high--]);
-        }
-        
-        low=0;
-        high=n-1;
-        while(low<high)
-        {
-            swap(nums[low++], nums[high--]);
+            int ind=i;
+            int ind2=(ind+k)%n;
+            int temp=nums[ind];
+            while(ind2!=ind)
+            {
+                swap(temp, nums[ind2]);
+                ind2=(ind2+k)%n;
+            }
+            swap(temp, nums[ind2]);
         }
         
         
