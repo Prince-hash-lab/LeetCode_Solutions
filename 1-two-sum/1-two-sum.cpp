@@ -1,23 +1,15 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        // vector<int> ans;
-        vector<vector<int>> numi;
-        int low=0, high=nums.size()-1;
-        for(int i=0; i<=high; i++)
+        unordered_map<int, int> mp;
+        int n=nums.size();
+        for(int i=0; i<n ; i++)
         {
-            numi.push_back({nums[i],i});
-        }
-        sort(numi.begin(), numi.end());
-        while(low<high)
-        {
-            if(numi[low][0]+numi[high][0]==target)
-            {
-                return {numi[low][1], numi[high][1]};
-            }
-            else if(numi[low][0]+numi[high][0]<target)
-                low++;
-            else high--;
+            // cout<<" i="<<i<<" val="<<target-nums[i]<<endl;
+            if(mp.find(target-nums[i])!=mp.end())
+                return {mp[target-nums[i]], i};
+            mp[nums[i]]=i;
+            // cout<<mp[target-nums[i]]<<endl;
         }
         return {};
     }
