@@ -1,7 +1,11 @@
 class Solution {
 public:
     void fsum(vector<int>& candidates, int target, int n, int ind, vector<int> v1 , vector<vector<int>> &ans)
-    {
+    {    if(target==0)
+            {
+                ans.push_back(v1);
+        return ;
+            }
         if(ind==n) return ;
         while(target>=0)
         {
@@ -9,10 +13,7 @@ public:
             
             target-=candidates[ind];
             v1.push_back(candidates[ind]);
-       if(target==0)
-            {
-                ans.push_back(v1);
-            }
+       
         }
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
