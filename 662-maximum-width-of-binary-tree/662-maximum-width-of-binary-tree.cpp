@@ -22,7 +22,8 @@ public:
     int widthOfBinaryTree(TreeNode* root) {
        if(root==NULL) return 0;
         queue<pair<TreeNode*, long long>> qu1;
-        long long  res=1, currid, lmost, rmost, currmin;
+        long long  res=1, currid, lmost, rmost, currmin, val;
+        TreeNode* temp;
         qu1.push({root, 0});
         while(!qu1.empty())
         {
@@ -30,8 +31,8 @@ public:
             currmin=qu1.front().second;
             for(long long i=0; i<sz; i++)
             {
-                TreeNode* temp=qu1.front().first;
-                long long val=qu1.front().second;
+                temp=qu1.front().first;
+                val=qu1.front().second;
                 currid=val-currmin;
                 if(i==0) lmost=currid;
                 if(i==sz-1) rmost=currid;
