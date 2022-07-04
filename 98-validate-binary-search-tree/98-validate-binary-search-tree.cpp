@@ -11,26 +11,13 @@
  */
 class Solution {
 public:
-    void inorder(TreeNode* root, bool &ans,bool &first , int &prev)
-    {
-        if(root==NULL) return ;
-        inorder(root->left, ans,first,  prev);
-        
-        if(!first and prev>=root->val) 
-        {
-            ans=false;
-            return ;
-        }
-        prev=root->val;
-        first=false;
-        inorder(root->right, ans,first, prev);
+  bool helper(TreeNode* root,long mini,long maxi){
+        if(root==NULL) return true;
+        if(root->val<=mini || root->val>=maxi) return false;
+        return helper(root->left,mini,root->val) && helper(root->right,root->val,maxi);
     }
+    
     bool isValidBST(TreeNode* root) {
-        bool ans=true, first=true;
-        int prev=NULL;
-        
-        inorder(root, ans,first ,  prev);
-        return ans;
-        
+        return helper(root,LONG_MIN,LONG_MAX);
     }
 };
