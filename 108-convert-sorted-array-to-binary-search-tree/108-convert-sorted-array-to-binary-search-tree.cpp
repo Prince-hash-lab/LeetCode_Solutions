@@ -14,7 +14,7 @@ public:
     TreeNode* crtree(vector<int> &nums, int low, int high)
     {
         if(low>high) return NULL;
-        if(low==high) return new TreeNode(nums[low]);
+        // if(low==high) return new TreeNode(nums[low]);
         int mid=low+(high-low)/2;
         TreeNode* root=new TreeNode(nums[mid]);
         root->left=crtree(nums, low, mid-1);
