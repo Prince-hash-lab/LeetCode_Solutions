@@ -15,7 +15,7 @@ public:
     {
         if(low>high) return NULL;
         // if(low==high) return new TreeNode(nums[low]);
-        int mid=low+(high-low)/2;
+        int mid=(low+high)/2;
         TreeNode* root=new TreeNode(nums[mid]);
         root->left=crtree(nums, low, mid-1);
         root->right=crtree(nums, mid+1, high);
