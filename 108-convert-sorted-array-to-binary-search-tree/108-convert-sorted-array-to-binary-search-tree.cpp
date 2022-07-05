@@ -23,7 +23,7 @@ public:
         
     }
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        
-        return crtree(nums, 0, nums.size()-1);
+        int high=nums.size()-1;
+        return crtree(nums, 0,high );
     }
 };
