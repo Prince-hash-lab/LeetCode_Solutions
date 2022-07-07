@@ -37,6 +37,8 @@ public:
         len=capacity;
         dll=NULL;
         taildll=NULL;
+        mp.max_load_factor(0.25);
+        mp.reserve(len);
     }
     
     int get(int key) {
