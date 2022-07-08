@@ -1,6 +1,7 @@
 class Solution {
 public:
     int largestRectangleArea(vector<int>& arr) {
+        std::ios::sync_with_stdio(false); std::cin.tie(nullptr);
         int n=arr.size();
        
         stack<int> st;
