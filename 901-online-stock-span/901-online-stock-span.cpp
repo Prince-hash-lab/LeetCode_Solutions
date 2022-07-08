@@ -19,7 +19,8 @@ public:
         return res;
     }
 };
-
+const auto fast = []() 
+{std::ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);return 0;}();
 /**
  * Your StockSpanner object will be instantiated and called as such:
  * StockSpanner* obj = new StockSpanner();
