@@ -28,7 +28,8 @@ public:
         return st.top().second;
     }
 };
-
+const auto fast = []() 
+{std::ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);return 0;}();
 /**
  * Your MinStack object will be instantiated and called as such:
  * MinStack* obj = new MinStack();
