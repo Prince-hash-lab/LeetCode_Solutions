@@ -7,3 +7,5 @@ public:
         return min(cost[0], cost[1]);
     }
 };
+const auto fast = []() 
+{std::ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);return 0;}();
