@@ -1,53 +1,27 @@
 class Solution {
 public:
-    bool issafe(vector<string> ans, int n, int i, int j)
-    {
-        if(i<0 or j<0 or i>=n or j>=n) return false;
-        for(int row=0; row<n; row++)
-            if(ans[row][j]=='Q') return false;
-        for(int col=0; col<n; col++)
-            if(ans[i][col]=='Q') return false;
-        int row=i, col=j;
-        while(row>=0 and col>=0)
-        {
-            if(ans[row--][col--]=='Q') return false;
-        }
-        row=i; col=j;
-        while(row<n and col<n)
-        {
-             if(ans[row++][col++]=='Q') return false;
-        }
-        row=i; col=j;
-        while(row>=0 and col<n)
-        {
-             if(ans[row--][col++]=='Q') return false;
-        }
-        row=i; col=j;
-        while(row<n and col>=0)
-        {
-             if(ans[row++][col--]=='Q') return false;
-        }
-        return true;
-    }
-    
-    bool findsol(vector<vector<string>> &brd, vector<string>& psol,int n, int k)
+    bool findsol(vector<vector<string>> &brd, vector<string>& psol, int n, int k,vector<int> &lrow, vector<int> &ldia,vector<int> &rdia)
     {
          if(k==n) 
          {
              brd.push_back(psol);
              return true;
          }
-        // for(int i=k; k<n; k++)
-        // {
+        
             for(int j=0; j<n; j++)
             {
-                if(issafe(psol, n, k, j))
+                if(lrow[j]==0 and ldia[k+j]==0 and rdia[n-1+j-k]==0)
                 {
+                    lrow[j]=1;
+                    ldia[k+j]=1;
+                    rdia[n-1+j-k]=1;
                     psol[k][j]='Q';
-                    findsol(brd, psol, n, k+1);
+                    findsol(brd, psol, n, k+1, lrow, ldia, rdia);
                     psol[k][j]='.';
+                    lrow[j]=0 ;
+                    ldia[k+j]=0;
+                    rdia[n-1+j-k]=0;
                 }
-            // }
         }
         
         return false;
@@ -62,7 +36,8 @@ public:
                 dot+=".";
             psol.push_back(dot);
         }
-        findsol(brd,psol, n, 0);
+        vector<int> lrow(n, 0), ldia(2*n-1, 0),rdia(2*n-1, 0);
+        findsol(brd,psol, n, 0, lrow, ldia, rdia);
         return brd;
     }
 };
