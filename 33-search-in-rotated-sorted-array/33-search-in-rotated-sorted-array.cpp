@@ -30,3 +30,5 @@ public:
         return -1;
     }
 };
+const auto fast = []() 
+{std::ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);return 0;}();
