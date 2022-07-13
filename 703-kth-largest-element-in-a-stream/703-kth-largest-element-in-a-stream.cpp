@@ -25,8 +25,8 @@ public:
         return pq.top();
     }
 };
-// const auto fast = []() 
-// {std::ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);return 0;}();
+const auto fast = []() 
+{std::ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);return 0;}();
 /**
  * Your KthLargest object will be instantiated and called as such:
  * KthLargest* obj = new KthLargest(k, nums);
