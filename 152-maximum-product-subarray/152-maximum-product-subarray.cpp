@@ -1,38 +1,17 @@
 class Solution {
 public:
     
-    int maxProduct(vector<int>& nums) {
-        int res=nums[0], prod=1, n=nums.size();
-        bool iszero=false;
-        for(int i=0; i<n; i++)
+    int maxProduct(vector<int>& n) {
+      int res=n[0], p1=n[0], p2=n[0];
+        for(int i=1; i<n.size(); i++)
         {
-            if(nums[i]==0)
-            {  res=max(res, nums[i]);
-                prod=1;
-            iszero=true;}
-            else
-            {
-                prod*=nums[i];
-                res=max(res, prod);
-            }
+            int tp=max({n[i], n[i]*p1,n[i]*p2});
+            p2=min({n[i], n[i]*p1,n[i]*p2});
+            p1=tp;
+            res=max(res, p1);
         }
-        prod=1;
-        for(int i=n-1; i>=0; i--)
-        {
-            if(nums[i]==0)
-            {   res=max(res, nums[i]);
-                prod=1;
-                iszero=true;
-            }
-            else
-            {
-                prod*=nums[i];
-                res=max(res, prod);
-            }
-        }
-        if(iszero) res=max(res, 0);
-        return res;
-        
+    
+    return res;
     }
 };
 const auto fast = []() 
