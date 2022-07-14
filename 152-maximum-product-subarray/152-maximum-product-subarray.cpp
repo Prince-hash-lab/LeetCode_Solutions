@@ -14,5 +14,5 @@ public:
     return res;
     }
 };
-const auto fast = []() 
-{std::ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);return 0;}();
+// const auto fast = []() 
+// {std::ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);return 0;}();
