@@ -21,12 +21,12 @@ public:
         vector<vector<int>> v(n+1, vector<int> (amt+1, 0));
         for(int i=0; i<amt+1; i++)
             v[0][i]=INT_MAX-1;
-        for(int i=1; i<amt+1; i++)
-        {
-            if(i%cn[0]) v[1][i]=INT_MAX-1;
-            else v[1][i]=i/cn[0];
-        }
-        for(int i=2; i<n+1; i++)
+        // for(int i=1; i<amt+1; i++)
+        // {
+        //     if(i%cn[0]) v[1][i]=INT_MAX-1;
+        //     else v[1][i]=i/cn[0];
+        // }
+        for(int i=1; i<n+1; i++)
         {
             for(int j=1; j<amt+1; j++)
             {
